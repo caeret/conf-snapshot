@@ -1,5 +1,12 @@
 ;;; f1 ctrl + c
-f1::Send, ^c
+f1::
+  SetTitleMatchMode 2
+  if WinActive("Xshell") {
+    Send, ^{insert}
+  } else {
+    Send, ^c
+  }
+return
 
 ;;; f2 ctrl + v
 f2::
