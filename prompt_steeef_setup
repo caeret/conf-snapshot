@@ -14,7 +14,7 @@
 
 function prompt_steeef_preexec {
   _prompt_steeef_start_time="$SECONDS"
-  _prompt_steeef_start_time_h=`date -u +"%Y-%m-%dT%H:%M:%SZ"`
+  _prompt_steeef_start_time_h=`date +"%Y-%m-%d %H:%M:%S"`
 }
 
 function prompt_steeef_print_elapsed_time() {
@@ -31,7 +31,7 @@ function prompt_steeef_print_elapsed_time() {
     minutes=$(( end_time / 60 ))
     seconds=$(( end_time % 60 ))
     print -P "%B%F{yellow}>>> elapsed time ${minutes}m${seconds}s%b"
-  elif (( end_time > 0 )); then
+  elif (( end_time > 10 )); then
     print -P "%B%F{green}>>> ${_prompt_steeef_start_time_h} elapsed time ${end_time}s%b"
   fi
 }
